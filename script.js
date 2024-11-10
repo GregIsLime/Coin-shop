@@ -47,7 +47,7 @@ function loadGoods() {
             document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
             out = ""
         }
-
+// sds
         const highlightedItems = document.querySelectorAll(".toBuyIt")
         highlightedItems.forEach((element) =>
             element.addEventListener("click", addToCard)
