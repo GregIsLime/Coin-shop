@@ -10,24 +10,37 @@ function cardButton() {
         tbody[0].innerHTML = ''
         let LS = JSON.parse(localStorage.getItem('card'))
         let orderList = ""
+        let sum=0
+        let totalNumbers=0
         $.getJSON("products.json", function (data) {
             let correctedLS = checkingAnOrderList(LS)
             let y = 0
             for (let key1 in data) {
-            for (let i=0; i<correctedLS.length;i++) {
-                 console.log(correctedLS[i][0]+"   " + data[key1]['art'])
-                if (correctedLS[i][0] == data[key1]['art']) {
-                orderList = `<tr>
+                for (let i = 0; i < correctedLS.length; i++) {
+                    if (correctedLS[i][0] == data[key1]['art']) {
+                        orderList = `<tr>
                         <th scope="row">${y + 1}</th>
                         <td>${data[key1]['nominal']} ${data[key1]['event']} </td>
-                        <td>${correctedLS[i][1]}</td>
-                        <td>${data[key1]['price']}</td>
+                        <td>${correctedLS[i][1]} шт.</td>
+                        <td>${Number(data[key1]['price'])*Number(correctedLS[i][1])} ₽</td>
                       </tr>`
-                tbody[0].insertAdjacentHTML('beforeend', orderList)
-                orderList = ""
-                y++
-                }}
+                        tbody[0].insertAdjacentHTML('beforeend', orderList)
+                        orderList = ""
+                        y++
+                        totalNumbers+= Number(correctedLS[i][1])
+                        sum+= Number(data[key1]['price'])*Number(correctedLS[i][1])
+                    }
+                }
             }
+            orderList =
+                `<tr class="totalCalc">
+                    <th scope="row">ИТОГО:</th>
+                    <td></td>
+                    <td>${totalNumbers} шт.</td>
+                    <td class="totalCalc">${sum} ₽</td>
+                </tr>`
+            tbody[0].insertAdjacentHTML('beforeend', orderList)
+            orderList = ""
         })
     })
 }
@@ -39,7 +52,6 @@ function checkingAnOrderList(orderList) {
     for (let i = 0; i < orderList.length; i++) {
         let y = 0;
         for (let z = 0; z < orderList.length; z++) {
-            // console.log(orderList[i])
             if (orderList[i] === orderListCopy[z]) {
                 y++
                 orderListCopy[z] = null
@@ -72,24 +84,17 @@ function loadGoods() {
             <p class="w-100 card-text lh-sm fs-8 mass">Вес: ${data[key]['weight']}гр </p>
             <p class="w-100 card-text lh-sm fs-6 text-center discont">${Math.ceil(data[key]['price'] * 1.6)} ₽</p>
             <p class="w-100 card-text lh-sm text-center fs-4 price fw-bold"> ${data[key]['price']}₽</p>
-
             <div class="card-block2 justify-content-center align-items" style="display: none"  data-art-button= "${data[key]['art']}">
-                
             <img class="imgSym minus" src="pic/minus.png" alt="">
             <div class="align-middle justify-content-center justify-content-md-center align-items d-flex">
             <img class="img-card" src="pic/pngwing.com.png" alt="">
             <p class="p-card">${checking(`${data[key]['art']}`)[0]}</p>
             </div>
-
             <img class="imgSym pluse" src="pic/more.png" alt="">
             </div>
-
             <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle" style="display: none" data-art="${data[key]['art']}">в корзину</div>`
-
-
             document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
             out = ""
-
             isIn = checkingNumInCard(key)[1]
             out += checkingNumInCard(key)[0]
             out += `</div>
