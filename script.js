@@ -3,9 +3,61 @@ $('document').ready(function () {
 }
 )
 
+function cardButton() {
+    let cardButton = document.getElementById("cardOfBuyer")
+    cardButton.addEventListener("click", () => {
+        let tbody = document.getElementsByTagName("tbody")
+        tbody[0].innerHTML = ''
+        let LS = JSON.parse(localStorage.getItem('card'))
+        let orderList = ""
+        $.getJSON("products.json", function (data) {
+            let correctedLS = checkingAnOrderList(LS)
+            let y = 0
+            for (let key1 in data) {
+            for (let i=0; i<correctedLS.length;i++) {
+                 console.log(correctedLS[i][0]+"   " + data[key1]['art'])
+                if (correctedLS[i][0] == data[key1]['art']) {
+                orderList = `<tr>
+                        <th scope="row">${y + 1}</th>
+                        <td>${data[key1]['nominal']} ${data[key1]['event']} </td>
+                        <td>${correctedLS[i][1]}</td>
+                        <td>${data[key1]['price']}</td>
+                      </tr>`
+                tbody[0].insertAdjacentHTML('beforeend', orderList)
+                orderList = ""
+                y++
+                }}
+            }
+        })
+    })
+}
+
+function checkingAnOrderList(orderList) {
+    let orderListCopy = orderList.slice(0);
+    let order = [[], []]
+    let x = 0
+    for (let i = 0; i < orderList.length; i++) {
+        let y = 0;
+        for (let z = 0; z < orderList.length; z++) {
+            // console.log(orderList[i])
+            if (orderList[i] === orderListCopy[z]) {
+                y++
+                orderListCopy[z] = null
+            }
+        }
+        if (y != 0) {
+            order[x] = [[orderList[i]], [y]]
+            x++
+        }
+    }
+    return order
+}
+
+cardButton()
+
 // geting JSON file put in HTML
 function loadGoods() {
-    $.getJSON("products/products.json", function (data) {
+    $.getJSON("products.json", function (data) {
 
         let out = ""
         let isIn = false
@@ -47,7 +99,7 @@ function loadGoods() {
             document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
             out = ""
         }
-        
+
         const highlightedItems = document.querySelectorAll(".toBuyIt")
         highlightedItems.forEach((element) =>
             element.addEventListener("click", addToCard)
@@ -141,3 +193,4 @@ function cardIsActive() {
         document.querySelector(".cardOfBuyer").classList.add("disabled")
     }
 }
+
