@@ -11,32 +11,33 @@
 </head>
 
 <body>
-    
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
   Launch static backdrop modal
 </button> -->
 
-<!-- Modal -->
-<div class="modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Название</th>
-              <th scope="col">Количество</th>
-              <th scope="col">Цена</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- <tr>
+  <!-- Modal -->
+  <div class="modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Название</th>
+                <th scope="col">Количество</th>
+                <th scope="col">Цена</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr>
               <th scope="row">1</th>
               <td>Mark</td>
               <td>Otto</td>
@@ -53,20 +54,20 @@
               <td colspan="2">Larry the Bird</td>
               <td>@twitter</td>
             </tr> -->
-          </tbody>
-        </table>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-  
 
-  <header class="bg-body-tertiary">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+  <header class="bg-primary.bg-gradient">
+    <nav class="navbar navbar-expand-lg  fixed-top bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">12rubley.ru</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -99,7 +100,8 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled cardOfBuyer" id="cardOfBuyer" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  href="" aria-disabled="true">Корзина</a>
+              <a class="nav-link disabled cardOfBuyer" id="cardOfBuyer" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop" href="" aria-disabled="true">Корзина</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-disabled="true">Контакты</a>
@@ -114,52 +116,25 @@
     </nav>
   </header>
 
-  <slider class="m-3">
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: First slide"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#555" dy=".3em">First
-              slide</text>
-          </svg>
-        </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Second slide"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#666"></rect><text x="50%" y="50%" fill="#444" dy=".3em">Second
-              slide</text>
-          </svg>
-        </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg d-block w-100" width="800" height="400"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Third slide"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#555"></rect><text x="50%" y="50%" fill="#333" dy=".3em">Third
-              slide</text>
-          </svg>
-        </div>
+  <!-- slider -->
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <!-- <div class="carousel-item active">
+        <img src="pic/84d8dec3012aff5a99de6172d9b4bd2d.webp" class="d-block w-100" alt="...">
+      </div> -->
+      <div class="carousel-item active">
+        <img src="pic/1.jpg" class="d-block w-100" alt="...">
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="carousel-item">
+        <img src="pic/2.jpg" class="d-block w-100" alt="...">
+      </div>
     </div>
-  </slider>
+  </div>
 
   <main>
- 
-     <div class="row row-cols-2 row-cols-md-5 g-4 " id="cardKeeper">
-   <!--    <div class="col">
+
+    <div class="row row-cols-2 row-cols-md-5 g-4 " id="cardKeeper">
+      <!--    <div class="col">
         <div class="card ">
           <img src="https://placehold.co/150x150" class="card-img-top" alt="...">
           <div class="card-body ">

@@ -75,7 +75,7 @@ function loadGoods() {
         let isIn = false
         for (let key in data) {
             out += `<div class="col h-100">
-        <div class="card ">
+        <div class="card">
           <img src=" ${data[key]['img']}" class="card-img-top w-100 cardimage" alt="...">
           <div class="card-body ">
             <h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']}</h6>
