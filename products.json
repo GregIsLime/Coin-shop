@@ -1,13 +1,13 @@
 {
-    "111" : {
-        "art" : "111",
+    "1" : {
+        "art" : "1",
         "country" : "rus",
-        "nominal" : "1 рубль 1984 года",
-        "event" : "Коронация",
-        "diameter" : "30",
-        "weight" : "112",
+        "nominal" : "1 рубль 1654 года",
+        "event" : "",
+        "diameter" : "",
+        "weight" : "",
         "price" : "89",
-        "img" : "http://12rubley.ru/store/0/7/0/70/IMG_20210223_153707.jpg"
+        "img" : "http://12rubley.ru/store/0/7/0/70/%D0%A1%D0%BD%D0%B8%D0%BC%D0%BE111.JPG"
     },
 
     "222" : {
