@@ -3,7 +3,8 @@
 }
 
 body {
-    background-color: var(--mandarin);
+    background-image: url(pic/icon-pattern-gray.png);
+    background-size: 25%;
 }
 
 /* header{

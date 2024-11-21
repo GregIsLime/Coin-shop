@@ -10,8 +10,8 @@ function cardButton() {
         tbody[0].innerHTML = ''
         let LS = JSON.parse(localStorage.getItem('card'))
         let orderList = ""
-        let sum=0
-        let totalNumbers=0
+        let sum = 0
+        let totalNumbers = 0
         $.getJSON("products.json", function (data) {
             let correctedLS = checkingAnOrderList(LS)
             let y = 0
@@ -22,13 +22,13 @@ function cardButton() {
                         <th scope="row">${y + 1}</th>
                         <td>${data[key1]['nominal']} ${data[key1]['event']} </td>
                         <td>${correctedLS[i][1]} шт.</td>
-                        <td>${Number(data[key1]['price'])*Number(correctedLS[i][1])} ₽</td>
+                        <td>${Number(data[key1]['price']) * Number(correctedLS[i][1])} ₽</td>
                       </tr>`
                         tbody[0].insertAdjacentHTML('beforeend', orderList)
                         orderList = ""
                         y++
-                        totalNumbers+= Number(correctedLS[i][1])
-                        sum+= Number(data[key1]['price'])*Number(correctedLS[i][1])
+                        totalNumbers += Number(correctedLS[i][1])
+                        sum += Number(data[key1]['price']) * Number(correctedLS[i][1])
                     }
                 }
             }
@@ -67,18 +67,43 @@ function checkingAnOrderList(orderList) {
 
 cardButton()
 
+
+function filtringCatigories() {
+    $.getJSON("products.json", function (data) {
+        let = new Array()
+
+
+        // filter by year
+        let = new Array()
+        for (let key in data)
+            some.push(data[key])
+        some.sort((a, b) => (a.year - b.year))
+
+    })
+}
+
+
+let isOnlyCoins = false
+let isOnlyMedals = false
+let filterByCountry = "all"
+
+
 // geting JSON file put in HTML
 function loadGoods() {
     $.getJSON("products.json", function (data) {
 
+        let filterSet = (isOnlyCoins) ? "монета" : ((isOnlyMedals) ? "медаль" : "none")
         let out = ""
         let isIn = false
+
         for (let key in data) {
-            out += `<div class="col h-100">
+            if (data[key]['type'] === filterSet || filterSet === "none") {
+                if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
+                    out += `<div class="col h-100">
         <div class="card">
           <img src=" ${data[key]['img']}" class="card-img-top w-100 cardimage" alt="...">
           <div class="card-body ">
-            <h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']}</h6>
+            <h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']} ${data[key]['year']}г.</h6>
             <h6 class="w-100 card-title text-center fs-5 nominals-comnt">${data[key]['event']}</h6>
             <p class="w-100 card-text lh-sm fs-6 diam">Диаметр: ${data[key]['diameter']}мм </p>
             <p class="w-100 card-text lh-sm fs-8 mass">Вес: ${data[key]['weight']}гр </p>
@@ -93,16 +118,18 @@ function loadGoods() {
             <img class="imgSym pluse" src="pic/more.png" alt="">
             </div>
             <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle" style="display: none" data-art="${data[key]['art']}">в корзину</div>`
-            document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
-            out = ""
-            isIn = checkingNumInCard(key)[1]
-            out += checkingNumInCard(key)[0]
-            out += `</div>
+                    document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
+                    out = ""
+                    isIn = checkingNumInCard(key)[1]
+                    out += checkingNumInCard(key)[0]
+                    out += `</div>
         </div>
       </div>`
 
-            document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
-            out = ""
+                    document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
+                    out = ""
+                }
+            }
         }
 
         const highlightedItems = document.querySelectorAll(".toBuyIt")
@@ -199,3 +226,36 @@ function cardIsActive() {
     }
 }
 
+
+let btnOnlyCoins = document.getElementById("btncheck1")
+let btnOnlyMedals = document.getElementById("btncheck2")
+btnOnlyCoins.addEventListener("click", () => {
+    btnOnlyCoins.checked = (btnOnlyCoins.checked) ? true : false
+    btnOnlyMedals.checked = false
+    isOnlyMedals = false
+    isOnlyCoins = (isOnlyCoins) ? false : true
+    document.getElementById("cardKeeper").innerHTML = ''
+    loadGoods()
+
+
+})
+btnOnlyMedals.addEventListener("click", () => {
+    btnOnlyMedals.checked = (btnOnlyMedals.checked) ? true : false
+    btnOnlyCoins.checked = false
+    isOnlyCoins = false
+    isOnlyMedals = (isOnlyMedals) ? false : true
+    document.getElementById("cardKeeper").innerHTML = ''
+    loadGoods()
+})
+
+
+
+let categoryArray = document.getElementsByClassName("dropdown-item-countrys")
+Array.from(categoryArray).forEach((element) => {
+    element.addEventListener("click", () => {
+        btnGroupDrop1.innerText = element.innerText
+        filterByCountry = element.id
+        document.getElementById("cardKeeper").innerHTML = ''
+        loadGoods()
+    })
+})
