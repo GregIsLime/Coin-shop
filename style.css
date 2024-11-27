@@ -2,14 +2,20 @@
     --mandarin: rgb(201, 201, 201);
 }
 
+@font-face {
+    font-family: "Oranienbaum";
+    src: url("fonts/Oranienbaum,Urbanist/Oranienbaum/Oranienbaum-Regular.ttf");
+}
+
+
 body {
     background-image: url(pic/icon-pattern-gray.png);
     background-size: 25%;
 }
 
-/* header{
-    padding: 50px 0 ;
-} */
+#card-numberOfProducts{
+color: blue;
+}
 
 main{
     margin: 0 15px 0 10px;
@@ -120,4 +126,29 @@ footer{
 
 .totalCalc{
    font-size: larger;
+}
+
+#text-sort{
+    font-size: 1.25rem;
+    margin: 0 5px 0 20px;
+}
+
+#btnGroupDrop1{
+    border-radius: 0.25rem;
+}
+
+.navbar-brand , .nav-link {
+    font-family: "Oranienbaum";
+    font-size: 1.5rem;
+}
+
+.btn-light , .dropdown-item-countrys{
+    font-family: "Oranienbaum";
+    font-size: 1.25rem;
+    
+}
+
+#text-sort{
+    font-family: "Oranienbaum";
+    font-size: 1.5rem;
 }

@@ -74,34 +74,44 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              <a id="header-text" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Монеты и медали
+                Все страны
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Российская Империя, РСФСР, СССР, Россия</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">США</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">ФРГ, ГДР, Германия </a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Древняя Греция</a></li>
+            </li>
 
-              </ul>
+            <li>
+              <a countrys="all" class="dropdown-item dropdown-item-countrys" href="#">Все страны</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link disabled cardOfBuyer" id="cardOfBuyer" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" href="" aria-disabled="true">Корзина<span id="card-numberOfProducts"></span></a>
+            <hr class="dropdown-divider">
+            <li>
+              <a countrys="Россия" class="dropdown-item dropdown-item-countrys" href="#">Россия</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" aria-disabled="true">Контакты</a>
+            <li>
+              <hr class="dropdown-divider">
             </li>
+            <li>
+              <a countrys="Германия" class="dropdown-item dropdown-item-countrys" href="#">Германия</a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+              <a countrys="США" class="dropdown-item dropdown-item-countrys" href="#">США</a>
+            </li>
+            
+            <hr class="dropdown-divider">
+          </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled cardOfBuyer" id="cardOfBuyer" data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop" href="" aria-disabled="true">Корзина<span
+                id="card-numberOfProducts"></span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-disabled="true">Контакты</a>
+          </li>
           </ul>
           <!-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -112,7 +122,7 @@
     </nav>
   </header>
 
-  
+
 
   <!-- slider -->
   <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -132,24 +142,26 @@
   <!-- filter button -->
   <div class=" d-flex justify-content-center" role="group" aria-label="Button group with nested dropdown">
 
-    <input  type="checkbox" class="btn-check" id="btncheck1" >
+    <input type="checkbox" class="btn-check" id="btncheck1">
     <label class="btn btn-sm btn-outline-dark btn-light m-1 " for="btncheck1">Монеты</label>
-  
+
     <input type="checkbox" class="btn-check " id="btncheck2" autocomplete="off">
     <label class="btn btn-sm btn-outline-dark btn-light m-1 " for="btncheck2">Медали</label>
-  
-  
-  
+
+
+
     <div class="btn-group btn-group-sm  m-1" role="group">
-      <button id="btnGroupDrop1" type="button" class="btn btn-sm  btn-outline-dark dropdown-toggle btn-light" data-bs-toggle="dropdown" aria-expanded="false">
-        Все
+      <span id="text-sort">Сортировка по странам:</span>
+      <button id="btnGroupDrop1" type="button" class="btn btn-sm  btn-outline-dark dropdown-toggle btn-light"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Все страны
       </button>
       <ul class="dropdown-menu  m-1" aria-labelledby="btnGroupDrop1">
 
-        <li><a id="Россия" class="dropdown-item dropdown-item-countrys" href="#">Россия</a></li>
-        <li><a id="Германия" class="dropdown-item dropdown-item-countrys" href="#">Германия</a></li>
-        <li><a id="США" class="dropdown-item dropdown-item-countrys" href="#">США</a></li>
-        <li><a id="all" class="dropdown-item dropdown-item-countrys" href="#">Все</a></li>
+        <li><a countrys="Россия" class="dropdown-item dropdown-item-countrys" href="#">Россия</a></li>
+        <li><a countrys="Германия" class="dropdown-item dropdown-item-countrys" href="#">Германия</a></li>
+        <li><a countrys="США" class="dropdown-item dropdown-item-countrys" href="#">США</a></li>
+        <li><a countrys="all" class="dropdown-item dropdown-item-countrys" href="#">Все страны</a></li>
       </ul>
     </div>
   </div>

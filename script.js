@@ -6,7 +6,6 @@ $('document').ready(function () {
 }
 )
 function refreshCards() {
-    console.log("qwqwqw")
     let tbody = document.getElementsByTagName("tbody")
     tbody[0].innerHTML = ''
     let LS = JSON.parse(localStorage.getItem('card'))
@@ -65,7 +64,6 @@ function refreshCards() {
 function cardButton() {
     let cardButton = document.getElementById("cardOfBuyer")
     cardButton.addEventListener("click", () => {
-        console.log("123")
         refreshCards()
     })
 }
@@ -194,6 +192,7 @@ function pluseAction() {
     let card = JSON.parse(localStorage.getItem('card')) || [];
     if (this.className === "imgSym pluse") {
         let articl = this.parentNode.getAttribute("data-art-button")
+        // console.log(articl)
         card.push(articl)
         localStorage.setItem("card", JSON.stringify(card))
         this.parentNode.querySelector(".p-card").innerHTML = checking(articl)[0]
@@ -201,11 +200,18 @@ function pluseAction() {
 
     } else if (this.className === "imgSym pluse2") {
         let nameOfCategory = this.parentNode.parentNode.getElementsByClassName("artOfCategory")
+
         let art = nameOfCategory[0].innerText
+        console.log(art)
         card.push(art)
         localStorage.setItem("card", JSON.stringify(card))
         let rightCard = document.getElementById(`card-id-${art}`)
-        let numer = rightCard.querySelector(".p-card").innerHTML
+        try { rightCard.querySelector(".p-card").innerHTML }
+        catch (err) {
+            refreshCards()
+            cardIsActive()
+        }
+        numer = rightCard.querySelector(".p-card").innerHTML
         rightCard.querySelector(".p-card").innerHTML = parseInt(numer) + 1
         refreshCards()
         cardIsActive()
@@ -246,6 +252,14 @@ function minusAction() {
         }
         localStorage.setItem("card", JSON.stringify(card))
         let rightCard = document.getElementById(`card-id-${art}`)
+
+
+        try { rightCard.querySelector(".p-card").innerHTML }
+        catch (err) {
+            refreshCards()
+            cardIsActive()
+        }
+        
         let numer = rightCard.querySelector(".p-card").innerHTML
         rightCard.querySelector(".p-card").innerHTML = parseInt(numer) - 1
         if (rightCard.querySelector(".p-card").innerHTML === "0") {
@@ -294,8 +308,6 @@ function loadFilterButtons() {
         isOnlyCoins = (isOnlyCoins) ? false : true
         document.getElementById("cardKeeper").innerHTML = ''
         loadGoods()
-
-
     })
     btnOnlyMedals.addEventListener("click", () => {
         btnOnlyMedals.checked = (btnOnlyMedals.checked) ? true : false
@@ -310,7 +322,9 @@ function loadFilterButtons() {
     Array.from(categoryArray).forEach((element) => {
         element.addEventListener("click", () => {
             btnGroupDrop1.innerText = element.innerText
-            filterByCountry = element.id
+            document.getElementById("header-text").innerText= element.innerText
+
+            filterByCountry = element.getAttribute("countrys")
             document.getElementById("cardKeeper").innerHTML = ''
             loadGoods()
         })
