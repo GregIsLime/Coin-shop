@@ -88,10 +88,15 @@ main{
     text-decoration: line-through;
 }
 
-footer{
+.footer-container{
     margin-top: 10px;
-    height: 100px;
-    background-color:rgb(205, 205, 205);
+    /* height: 20rem; */
+    background-color:rgb(227, 227, 227);
+    border-radius: 25px 25px 25px 25px ;
+    font-family: "Oranienbaum";
+    font-size: 1.8rem;
+    border: 2px dashed black;
+    
 }
 
 .cardimage{
@@ -151,4 +156,39 @@ footer{
 #text-sort{
     font-family: "Oranienbaum";
     font-size: 1.5rem;
+}
+
+.nominals-comnt , .nominals{
+    font-family: "Oranienbaum";
+    font-size: 1.5rem;
+    font-weight: bold; 
+}
+
+.toBuyIt{
+    font-family: "Oranienbaum";
+    font-size: 1.5rem;
+}
+
+.img-coin{
+    height: 180px;
+    width: 180px;
+    rotate: 200deg;
+    left: 550px;
+    top: 80px;
+    /* filter: blur(3px); */
+    /* задать анимацию «moving» к текущему элементу */
+    animation: moving 40s infinite linear;
+
+    /* указать точку координат, вокруг которой будет вращаться объект */
+    transform-origin: center;
+}
+
+@keyframes moving {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+footer{
+    margin: 20px 0px 20px 0px;
 }
