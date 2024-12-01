@@ -114,6 +114,7 @@ function loadGoods() {
         let out = ""
         let isIn = false
         for (let key in data) {
+            if (data[key]['isInBase'] === "yes"){
             if (data[key]['type'] === filterSet || filterSet === "none") {
                 if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
                     out += `<div class="col h-100">
@@ -147,7 +148,7 @@ function loadGoods() {
                     document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
                     out = ""
                 }
-            }
+            }}
         }
 
         const highlightedItems = document.querySelectorAll(".toBuyIt")
