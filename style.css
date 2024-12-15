@@ -1,3 +1,13 @@
+@media screen and (max-width:595px) {
+  .button-filter{
+    background-color: red; 
+  }
+  #text-sort{
+    display: none;
+  }
+}
+
+
 :root {
     --mandarin: rgb(201, 201, 201);
 }

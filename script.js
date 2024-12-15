@@ -136,7 +136,7 @@ function loadGoods() {
             </div>
             <img class="imgSym pluse" src="pic/more.png" alt="">
             </div>
-            <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle" style="display: none" data-art="${data[key]['art']}">в корзину</div>`
+            <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle fs-6" style="display: none" data-art="${data[key]['art']}">в корзину</div>`
                     document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
                     out = ""
                     isIn = checkingNumInCard(key)[1]
