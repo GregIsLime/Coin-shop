@@ -194,11 +194,8 @@ footer{
 }
 
 .button-filter{
-    /* border: 2px black solid!important;
-    border-radius: 5px; */
     height: 1.8rem;
-    /* background-color:white; */
-    /* margin-top: 5px;
-    padding: 5px; */
-    /* opacity: 0.6; */
+    align-items: center;
+    display: flex;
+    margin-bottom: 1rem;
 }
