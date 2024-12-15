@@ -1,9 +1,11 @@
 @media screen and (max-width:595px) {
-  .button-filter{
-    background-color: red; 
-  }
+ 
   #text-sort{
     display: none;
+  }
+
+  .nominals-comnt{
+    font-size: 1rem !important;
   }
 }
 
@@ -100,7 +102,8 @@ main{
 
 .footer-container{
     margin-top: 10px;
-    /* height: 20rem; */
+    width: 90%;
+    height: 30vw !important; 
     background-color:rgb(227, 227, 227);
     border-radius: 25px 25px 25px 25px ;
     font-family: "Oranienbaum";
@@ -168,9 +171,15 @@ main{
     font-size: 1.5rem;
 }
 
-.nominals-comnt , .nominals{
+.nominals-comnt {
     font-family: "Oranienbaum";
-    font-size: 1.5rem;
+    font-size: 1.0rem !important;
+    font-weight: bold; 
+}
+
+.nominals{
+    font-family: "Oranienbaum";
+    /* font-size: 1.5rem; */
     font-weight: bold; 
 }
 
@@ -180,8 +189,8 @@ main{
 }
 
 .img-coin{
-    height: 180px;
-    width: 180px;
+    /* height: 180px; */
+    width: 100%;
     rotate: 200deg;
     left: 550px;
     top: 80px;
@@ -208,4 +217,21 @@ footer{
     align-items: center;
     display: flex;
     margin-bottom: 1rem;
+}
+
+/* .cont-img{
+    display: flex;
+    justify-content:center;
+    flex-direction: column
+} */
+
+/* .cont-img img{
+    width: 100%;
+  
+} */
+
+.footer-text{
+    font-size: 3.1vw;
+    white-space: nowrap;
+    font-weight: bolder;
 }
