@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="body">
 
 
   <!-- Modal -->
@@ -19,17 +19,23 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Корзина</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <table class="table">
+            <colgroup>
+              <col span="1" style="width: 5%;">
+              <col span="1" style="width: 50%;">
+              <col span="1" style="width: 30%;">
+              <col span="1" style="width: 15%;">
+           </colgroup>
             <thead>
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">Название</th>
-                <th scope="col">Количество</th>
-                <th scope="col">Цена</th>
+                <th  scope="col" >#</th>
+                <th  scope="col" >Название</th>
+                <th  scope="col" >Количество</th>
+                <th  scope="col" >Цена</th>
               </tr>
             </thead>
             <tbody>
@@ -54,8 +60,8 @@
           </table>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          <button type="button" class="btn btn-primary">Скопировать</button>
         </div>
       </div>
     </div>
@@ -102,6 +108,10 @@
             </li>
 
             <hr class="dropdown-divider">
+
+            <li>
+              <a countrys="Греция" class="dropdown-item dropdown-item-countrys" href="#">Греция</a>
+            </li> 
           </ul>
           </li>
           <li class="nav-item">
@@ -127,7 +137,7 @@
 
 
   <!-- slider -->
-  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div id="carouselExampleSlidesOnly" class="carousel slide slider-cont" data-bs-ride="carousel">
     <div class="carousel-inner">
       <!-- <div class="carousel-item active">
         <img src="pic/84d8dec3012aff5a99de6172d9b4bd2d.webp" class="d-block w-100" alt="...">
@@ -159,10 +169,10 @@
         Все страны
       </button>
       <ul class="dropdown-menu  m-1" aria-labelledby="btnGroupDrop1">
-
         <li><a countrys="Россия" class="dropdown-item dropdown-item-countrys" href="#">Россия</a></li>
         <li><a countrys="Германия" class="dropdown-item dropdown-item-countrys" href="#">Германия</a></li>
         <li><a countrys="США" class="dropdown-item dropdown-item-countrys" href="#">США</a></li>
+        <li><a countrys="Греция" class="dropdown-item dropdown-item-countrys" href="#">Греция</a></li>
         <li><a countrys="all" class="dropdown-item dropdown-item-countrys" href="#">Все страны</a></li>
       </ul>
     </div>

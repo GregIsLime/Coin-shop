@@ -24,11 +24,11 @@ function refreshCards() {
                     <td class="artOfCategory" style="display:none;">${data[key1]['art']}</td>
                     <td>${data[key1]['nominal']} ${data[key1]['year']}г. ${data[key1]['event']} </td>
                     <td>
-                    <img class="imgSym minus2" src="pic/minus.png" alt="">
+                    <img class="imgSym imgSymModal minus2" src="pic/minus.png" alt="">
                     ${correctedLS[i][1]} шт.
-                    <img class="imgSym pluse2" src="pic/more.png" alt="">
+                    <img class="imgSym imgSymModal pluse2" src="pic/more.png" alt="">
                     </td>
-                    <td>${Number(data[key1]['price']) * Number(correctedLS[i][1])} ₽</td>
+                    <td>${Number(data[key1]['price']) * Number(correctedLS[i][1])}₽</td>
                   </tr>`
                     tbody[0].insertAdjacentHTML('beforeend', orderList)
                     orderList = ""
@@ -51,10 +51,10 @@ function refreshCards() {
         }
         orderList =
             `<tr class="totalCalc">
-                <th scope="row">ИТОГО:</th>
                 <td></td>
+                <th scope="row">ИТОГО:</th>
                 <td>${totalNumbers} шт.</td>
-                <td class="totalCalc">${sum} ₽</td>
+                <td class="totalCalc">${sum}₽</td>
             </tr>`
         tbody[0].insertAdjacentHTML('beforeend', orderList)
         orderList = ""
@@ -199,7 +199,7 @@ function pluseAction() {
         this.parentNode.querySelector(".p-card").innerHTML = checking(articl)[0]
         cardIsActive()
 
-    } else if (this.className === "imgSym pluse2") {
+    } else if (this.className === "imgSym imgSymModal pluse2") {
         let nameOfCategory = this.parentNode.parentNode.getElementsByClassName("artOfCategory")
 
         let art = nameOfCategory[0].innerText
@@ -240,7 +240,7 @@ function minusAction() {
             cardIsActive()
         }
         cardIsActive()
-    } else if (this.className === "imgSym minus2") {
+    } else if (this.className === "imgSym imgSymModal minus2") {
         let nameOfCategory = this.parentNode.parentNode.getElementsByClassName("artOfCategory")
         let art = nameOfCategory[0].innerText
         let i = 0
