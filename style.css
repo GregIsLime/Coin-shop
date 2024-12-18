@@ -17,6 +17,28 @@
     .totalCalc {
         font-size: large !important;
     }
+
+    .mesengers2 {
+        height: 2.5rem !important;
+    }
+
+    .mail{
+        display: none;
+    }
+    .mail2{
+        display: block !important;
+        font-size: 1.4rem;
+    }
+
+    .footer-container {
+        font-size: 1.4rem !important;
+    }
+
+    .tel, .icons{
+        padding-left: 0rem !important;
+    }
+
+
 }
 
 @media screen and (min-width:595px) {
@@ -135,16 +157,29 @@ main {
     text-decoration: line-through;
 }
 
+.mesengers{
+    height: 2rem;
+}
+
+.mesengers2{
+    height: 4rem;
+}
+
 .footer-container {
     margin-top: 10px;
-    width: 90%;
-    height: 30vw !important;
-    background-color: rgb(227, 227, 227);
-    border-radius: 25px 25px 25px 25px;
+    width: 100%;
+    background-color: rgb(227, 227, 227,0.6);
+    border-radius: 25px 25px 0px 0px;
     font-family: "Oranienbaum";
     font-size: 1.8rem;
-    border: 2px dashed black;
+    border: 1px solid black;
+    /* opacity: 0.6; */
+    
 
+}
+
+.block-1{
+    font-weight: bold;
 }
 
 .cardimage {
@@ -226,28 +261,9 @@ main {
     font-size: 1.5rem;
 }
 
-.img-coin {
-    /* height: 180px; */
-    width: 100%;
-    rotate: 200deg;
-    left: 550px;
-    top: 80px;
-    /* filter: blur(3px); */
-    /* задать анимацию «moving» к текущему элементу */
-    animation: moving 40s infinite linear;
-
-    /* указать точку координат, вокруг которой будет вращаться объект */
-    transform-origin: center;
-}
-
-@keyframes moving {
-    100% {
-        transform: rotate(-360deg);
-    }
-}
 
 footer {
-    margin: 20px 0px 20px 0px;
+    margin: 20px 0px 0px 0px;
 }
 
 .button-filter {
@@ -257,23 +273,21 @@ footer {
     margin-bottom: 1rem;
 }
 
-/* .cont-img{
-    display: flex;
-    justify-content:center;
-    flex-direction: column
-} */
 
-/* .cont-img img{
-    width: 100%;
-  
-} */
 
 .footer-text {
-    font-size: 3.1vw;
+    font-size: 2.1vw;
     white-space: nowrap;
-    font-weight: bolder;
+    font-weight: bold;
+    text-align: center;
+    align-content: end;
+    font-size: 1.8rem;
 }
 
 .slider-cont {
     margin-top: 2.5rem;
+}
+
+.mail2{
+    display: none;
 }
