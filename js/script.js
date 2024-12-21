@@ -1,10 +1,11 @@
 $('document').ready(function () {
-
     loadGoods()
     cardButton()
     loadFilterButtons()
 }
 )
+
+
 function refreshCards() {
     let tbody = document.getElementsByTagName("tbody")
     tbody[0].innerHTML = ''
@@ -22,10 +23,11 @@ function refreshCards() {
                     orderList = `<tr>
                     <th scope="row">${y + 1}</th>
                     <td class="artOfCategory" style="display:none;">${data[key1]['art']}</td>
-                    <td>${data[key1]['nominal']} ${data[key1]['year']}г. ${data[key1]['event']} </td>
+                    <td class="productName">${data[key1]['nominal']} ${data[key1]['year']}г. ${data[key1]['event']}</td>
+                    <span class="eachPrice" style="display:none;">${data[key1]['price']}</span>
                     <td>
-                    <img class="imgSym imgSymModal minus2" src="pic/minus.png" alt="">
-                    ${correctedLS[i][1]} шт.
+                    <img class="imgSym imgSymModal minus2" src="pic/minus.png" alt=""><span class="numberOfProdut">
+                    ${correctedLS[i][1]}</span>шт.
                     <img class="imgSym imgSymModal pluse2" src="pic/more.png" alt="">
                     </td>
                     <td>${Number(data[key1]['price']) * Number(correctedLS[i][1])}₽</td>
@@ -46,6 +48,7 @@ function refreshCards() {
                         element.addEventListener("click", minusAction)
                     }
                     )
+                    // toStringForMail(`${data[key1]['nominal']} ${data[key1]['year']}г. ${data[key1]['event']}`, `${data[key1]['price']}`, `${correctedLS[i][1]}`)
                 }
             }
         }
@@ -53,8 +56,8 @@ function refreshCards() {
             `<tr class="totalCalc">
                 <td></td>
                 <th scope="row">ИТОГО:</th>
-                <td>${totalNumbers} шт.</td>
-                <td class="totalCalc">${sum}₽</td>
+                <td class="totalNumber"><span id="totalNumbersSpan">${totalNumbers}</span> шт.</td>
+                <td class="totalCalc"> <span id="totalCalcSpan">${sum}</span>₽</td>
             </tr>`
         tbody[0].insertAdjacentHTML('beforeend', orderList)
         orderList = ""
@@ -114,10 +117,10 @@ function loadGoods() {
         let out = ""
         let isIn = false
         for (let key in data) {
-            if (data[key]['isInBase'] === "yes"){
-            if (data[key]['type'] === filterSet || filterSet === "none") {
-                if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
-                    out += `<div class="col h-100">
+            if (data[key]['isInBase'] === "yes") {
+                if (data[key]['type'] === filterSet || filterSet === "none") {
+                    if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
+                        out += `<div class="col h-100">
         <div id="card-id-${data[key]['art']}" class="card">
           <img src=" ${data[key]['img']}" class="card-img-top w-100 cardimage" alt="...">
           <div class="card-body } ">
@@ -137,18 +140,19 @@ function loadGoods() {
             <img class="imgSym pluse" src="pic/more.png" alt="">
             </div>
             <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle fs-6" style="display: none" data-art="${data[key]['art']}">в корзину</div>`
-                    document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
-                    out = ""
-                    isIn = checkingNumInCard(key)[1]
-                    out += checkingNumInCard(key)[0]
-                    out += `</div>
+                        document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
+                        out = ""
+                        isIn = checkingNumInCard(key)[1]
+                        out += checkingNumInCard(key)[0]
+                        out += `</div>
         </div>
       </div>`
 
-                    document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
-                    out = ""
+                        document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
+                        out = ""
+                    }
                 }
-            }}
+            }
         }
 
         const highlightedItems = document.querySelectorAll(".toBuyIt")
@@ -260,7 +264,7 @@ function minusAction() {
             refreshCards()
             cardIsActive()
         }
-        
+
         let numer = rightCard.querySelector(".p-card").innerHTML
         rightCard.querySelector(".p-card").innerHTML = parseInt(numer) - 1
         if (rightCard.querySelector(".p-card").innerHTML === "0") {
@@ -323,7 +327,7 @@ function loadFilterButtons() {
     Array.from(categoryArray).forEach((element) => {
         element.addEventListener("click", () => {
             btnGroupDrop1.innerText = element.innerText
-            document.getElementById("header-text").innerText= element.innerText
+            document.getElementById("header-text").innerText = element.innerText
 
             filterByCountry = element.getAttribute("countrys")
             document.getElementById("cardKeeper").innerHTML = ''
@@ -332,5 +336,13 @@ function loadFilterButtons() {
     })
 }
 
+let positon = ""
+function toStringForMail(order, price, pcs) {
+    if(order==="total"){
+        positon += `В заказе ${price} шт. на сумму ${pcs} руб.`
+    }else{        
+    positon += `${order} по ${price}руб. x ${pcs} шт. = ${price * pcs} руб.\n`
+}
+}
 
 
