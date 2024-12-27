@@ -54,9 +54,22 @@
     }
 }
 
-@media screen and (min-width:2000px) {
+/* @media screen and (min-width:2000px) {
     
+} */
+
+@media screen and (max-width:768px) {
+    .heighsetingsImg{
+        height: 406px !important;
+    }
 }
+
+@media  (min-width:768px) {
+    .heighsetingsImg{
+        height: 357px !important;
+    }
+}
+
 
 
 
@@ -106,6 +119,8 @@ main {
     margin-top: 5px;
     padding: 5px;
     opacity: 0.6;
+    margin: 0 auto;
+    width: fit-content;
 }
 
 .card-block:hover {
@@ -291,3 +306,4 @@ footer {
 .mail2{
     display: none;
 }
+

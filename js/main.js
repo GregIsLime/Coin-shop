@@ -76,6 +76,7 @@ validation.addField("#name", [
 
 
 
+
 // toStringForMail(`${data[key1]['nominal']} ${data[key1]['year']}г. ${data[key1]['event']}`, `${data[key1]['price']}`, `${correctedLS[i][1]}`)
 // console.log(positon)
 
