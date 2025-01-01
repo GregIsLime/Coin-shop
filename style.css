@@ -1,19 +1,23 @@
+
+
+
 @media screen and (max-width:595px) {
     .body {
         background-size: 70%;
+    }
+
+    .imgSymModal {
+        width: 20px !important;
     }
 
     #text-sort {
         display: none;
     }
 
-    .nominals-comnt {
-        font-size: 1rem !important;
-    }
-
     .imgSymModal {
         width: 20px !important;
     }
+
     .totalCalc {
         font-size: large !important;
     }
@@ -22,10 +26,11 @@
         height: 2.5rem !important;
     }
 
-    .mail{
+    .mail {
         display: none;
     }
-    .mail2{
+
+    .mail2 {
         display: block !important;
         font-size: 1.4rem;
     }
@@ -34,18 +39,18 @@
         font-size: 1.4rem !important;
     }
 
-    .tel, .icons{
+    .tel,
+    .icons {
         padding-left: 0rem !important;
     }
 
 
 }
 
-@media screen and (min-width:595px) {
+@media screen and (min-width:595px)  {
     .body {
         background-size: 25%;
     }
-    
 }
 
 @media screen and (min-width:900px) {
@@ -57,19 +62,35 @@
 /* @media screen and (min-width:2000px) {
     
 } */
+@media screen and (min-width:768px) and (max-width: 1199.98px) { 
+    .heighsetingsImg {
+        height: 315px !important;
+    }}
 
 @media screen and (max-width:768px) {
-    .heighsetingsImg{
+    .heighsetingsImg {
         height: 406px !important;
     }
 }
 
-@media  (min-width:768px) {
-    .heighsetingsImg{
-        height: 357px !important;
+@media screen and (min-width:1200px) and (max-width: 1430px){
+    .heighsetingsImg {
+        height: 339px !important;
     }
 }
 
+@media screen and (min-width:1430px) {
+    .heighsetingsImg {
+        height: 414px !important;
+    }
+}
+
+
+@media (min-width:2000px) {
+.navigation {
+    padding-left: 40%;
+}
+}
 
 
 
@@ -86,7 +107,11 @@
 body {
     background-image: url(pic/icon-pattern-gray.png);
     background-size: 25%;
+    max-width: 2000px;
+    margin: auto;
 }
+
+
 
 #card-numberOfProducts {
     color: blue;
@@ -172,28 +197,28 @@ main {
     text-decoration: line-through;
 }
 
-.mesengers{
+.mesengers {
     height: 2rem;
 }
 
-.mesengers2{
+.mesengers2 {
     height: 4rem;
 }
 
 .footer-container {
     margin-top: 10px;
     width: 100%;
-    background-color: rgb(227, 227, 227,0.6);
+    background-color: rgb(227, 227, 227, 0.6);
     border-radius: 25px 25px 0px 0px;
     font-family: "Oranienbaum";
     font-size: 1.8rem;
     border: 1px solid black;
     /* opacity: 0.6; */
-    
+
 
 }
 
-.block-1{
+.block-1 {
     font-weight: bold;
 }
 
@@ -261,9 +286,16 @@ main {
 
 .nominals-comnt {
     font-family: "Oranienbaum";
-    font-size: 1.0rem !important;
+    font-size: 0.8rem !important;
     font-weight: bold;
+   /* for text limet */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
+
+
 
 .nominals {
     font-family: "Oranienbaum";
@@ -303,7 +335,6 @@ footer {
     margin-top: 2.5rem;
 }
 
-.mail2{
+.mail2 {
     display: none;
 }
-

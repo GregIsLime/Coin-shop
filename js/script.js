@@ -124,11 +124,13 @@ function loadGoods() {
         <div id="card-id-${data[key]['art']}" class="card heighsetingsImg">
           <img src=" ${data[key]['img']}" class="card-img-top w-100 cardimage" alt="...">
 
-          <div class="card-body }d-flex justify-content-between flex-column">
-<div class="">
+          <div class="card-body }d-flex justify-content-around flex-column">
+<div class="w-100">
             <h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']} ${data[key]['year']}г.</h6>
+           <div class="w-100">
             <h6 class="w-100 card-title text-center fs-5 nominals-comnt">${data[key]['event']}</h6>
-</div>
+          </div>
+            </div>
 <div class="">
             <p class="w-100 card-text lh-sm fs-6 country">Страна: ${data[key]['country']} </p>
             <p class="w-100 card-text lh-sm fs-6 diam">Диаметр: ${data[key]['diameter']}мм </p>
@@ -145,7 +147,7 @@ function loadGoods() {
             </div>
             <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle fs-6" style="display: none" data-art="${data[key]['art']}">в корзину</div>
  </div>`
-            document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
+                        document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
                         out = ""
                         isIn = checkingNumInCard(key)[1]
                         out += checkingNumInCard(key)[0]
@@ -343,11 +345,11 @@ function loadFilterButtons() {
 
 let positon = ""
 function toStringForMail(order, price, pcs) {
-    if(order==="total"){
+    if (order === "total") {
         positon += `В заказе ${price} шт. на сумму ${pcs} руб.`
-    }else{        
-    positon += `${order} по ${price}руб. x ${pcs} шт. = ${price * pcs} руб.\n`
-}
+    } else {
+        positon += `${order} по ${price}руб. x ${pcs} шт. = ${price * pcs} руб.\n`
+    }
 }
 
 
