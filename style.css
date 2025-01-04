@@ -1,13 +1,6 @@
-
-
-
 @media screen and (max-width:595px) {
     .body {
         background-size: 70%;
-    }
-
-    .imgSymModal {
-        width: 20px !important;
     }
 
     #text-sort {
@@ -15,7 +8,7 @@
     }
 
     .imgSymModal {
-        width: 20px !important;
+        width: 16px !important;
     }
 
     .totalCalc {
@@ -47,7 +40,12 @@
 
 }
 
-@media screen and (min-width:595px)  {
+@media screen and (max-width:650px) {
+    .imgSymModal {
+        width: 20px !important;
+    }
+}
+@media screen and (min-width:595px) {
     .body {
         background-size: 25%;
     }
@@ -59,21 +57,48 @@
     }
 }
 
-/* @media screen and (min-width:2000px) {
-    
-} */
-@media screen and (min-width:768px) and (max-width: 1199.98px) { 
-    .heighsetingsImg {
-        height: 315px !important;
-    }}
+@media (min-width:2000px) {
+    .navigation {
+        padding-left: 40%;
+    }
+}
 
-@media screen and (max-width:768px) {
+
+
+@media (max-width:500px) {
+    .heighsetingsImg {
+        height: 310px !important;
+    }
+    .mainform{
+        width: 100% !important;
+    }
+
+    .modal-body {
+        font-size: 0.9rem !important; 
+    }
+
+   
+}
+
+@media screen and (min-width:500px) and (max-width:650px) {
+    .heighsetingsImg {
+        height: 362px !important;
+    }
+}
+
+@media screen and (min-width:650px) and (max-width:768px) {
     .heighsetingsImg {
         height: 406px !important;
     }
 }
 
-@media screen and (min-width:1200px) and (max-width: 1430px){
+@media screen and (min-width:768px) and (max-width: 1199.98px) {
+    .heighsetingsImg {
+        height: 315px !important;
+    }
+}
+
+@media screen and (min-width:1200px) and (max-width: 1430px) {
     .heighsetingsImg {
         height: 339px !important;
     }
@@ -86,14 +111,6 @@
 }
 
 
-@media (min-width:2000px) {
-.navigation {
-    padding-left: 40%;
-}
-}
-
-
-
 :root {
     --mandarin: rgb(201, 201, 201);
 }
@@ -103,11 +120,23 @@
     src: url("fonts/Oranienbaum,Urbanist/Oranienbaum/Oranienbaum-Regular.ttf");
 }
 
+@font-face {
+    font-family: "SnellRoundhand";
+    src: url("fonts/SnellRoundhand.ttf");
+}
+
+/* @font-face {
+    font-family: "LetteraTrentadue";
+    src: url("fonts/LetteraTrentadue.ttf");
+} */
+
+
 
 body {
     background-image: url(pic/icon-pattern-gray.png);
     background-size: 25%;
     max-width: 2000px;
+    min-width: 341px;
     margin: auto;
 }
 
@@ -166,7 +195,7 @@ main {
 .card-body {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     padding: 0rem 1rem;
 }
 
@@ -206,13 +235,15 @@ main {
 }
 
 .footer-container {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    margin: .25rem .5rem 0rem .5rem;
     width: 100%;
     background-color: rgb(227, 227, 227, 0.6);
     border-radius: 25px 25px 0px 0px;
     font-family: "Oranienbaum";
     font-size: 1.8rem;
     border: 1px solid black;
+    border-bottom: 0px;
     /* opacity: 0.6; */
 
 
@@ -288,10 +319,10 @@ main {
     font-family: "Oranienbaum";
     font-size: 0.8rem !important;
     font-weight: bold;
-   /* for text limet */
+    /* for text limet */
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
@@ -301,6 +332,11 @@ main {
     font-family: "Oranienbaum";
     /* font-size: 1.5rem; */
     font-weight: bold;
+    /* for text limet */
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .toBuyIt {
@@ -338,3 +374,50 @@ footer {
 .mail2 {
     display: none;
 }
+
+.textForModal-container{
+    margin: 0px auto;
+}
+
+.modal-body{
+    font-family: "Oranienbaum";
+    font-size: 1.5rem;
+}
+
+.textForModal{
+    text-align:  center;
+    font-family: "Oranienbaum";
+    font-size: 1.5rem;
+
+    span{
+        color: red;
+    }
+}
+
+.post{
+    margin-top: 30px;
+    
+    position: relative;
+}
+
+.post-text{
+    width: 30%;
+    position: absolute;
+    top: 40%;
+    color: white;
+    font-size: 2vw;
+    padding-left: 1vw;
+    text-align: center;
+    /* font-family: "Oranienbaum"; */
+    border: 1px black solid;
+    backdrop-filter: blur(5px);
+    margin-left: 5%;
+    background-color: rgba(169, 169, 169, 0.2);
+    border-radius: 10% / 50%;
+    font-family: "SnellRoundhand" ;
+    
+    /* font-family: "LetteraTrentadue" ; */
+
+ 
+}
+
