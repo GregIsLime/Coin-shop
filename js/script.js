@@ -122,9 +122,9 @@ function loadGoods() {
                     if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
                         out += `<div class="col h-100">
         <div id="card-id-${data[key]['art']}" class="card heighsetingsImg">
-          <img src=" ${data[key]['img']}" class="card-img-top w-100 cardimage" alt="...">
+          <img src=" ${data[key]['img']}"  data-bs-target="#imgBiger"  data-bs-toggle="modal"  class="card-img-top w-100 cardimage" alt="...">
 
-          <div class="card-body }d-flex justify-content-around flex-column">
+          <div class="card-body d-flex justify-content-around flex-column">
 <div class="w-100">
             <h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']} ${data[key]['year']}г.</h6>
            <div class="w-100">
@@ -165,6 +165,11 @@ function loadGoods() {
         const highlightedItems = document.querySelectorAll(".toBuyIt")
         highlightedItems.forEach((element) =>
             element.addEventListener("click", addToCard)
+        )
+
+        const imgBigSize = document.querySelectorAll(".card-img-top")
+        imgBigSize.forEach((element) =>
+            element.addEventListener("click", imgBiger)
         )
 
         const pluse = document.querySelectorAll(".pluse")
@@ -352,4 +357,23 @@ function toStringForMail(order, price, pcs) {
     }
 }
 
+function imgBiger() {
+    document.getElementsByClassName("picModal-container")[0].innerHTML = ""
 
+    let countryModal = document.getElementsByClassName("countryModal")[0] 
+    let diamModal = document.getElementsByClassName("diamModal")[0] 
+    let massModal = document.getElementsByClassName("massModal")[0] 
+    let priceModal = document.getElementsByClassName("priceModal")[0] 
+
+    let img = this.parentNode.getElementsByClassName("card-img-top")[0]
+    let modalBlockPic = document.getElementsByClassName("picModal-container")[0]
+    let copyImg = img.cloneNode()
+    document.getElementById("imgBigerTitel").innerHTML = this.parentNode.getElementsByClassName("nominals")[0].innerText + " " + this.parentNode.getElementsByClassName("nominals-comnt")[0].innerText 
+    modalBlockPic.appendChild(copyImg)
+
+    countryModal.innerText= this.parentNode.getElementsByClassName("country")[0].innerText
+    diamModal.innerText= this.parentNode.getElementsByClassName("diam")[0].innerText
+    massModal.innerText= this.parentNode.getElementsByClassName("mass")[0].innerText
+    priceModal.innerText= "Цена: "+this.parentNode.getElementsByClassName("price")[0].innerText
+
+}

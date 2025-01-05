@@ -66,7 +66,7 @@ validation.addField("#name", [
     house:document.getElementById("house").value,
     flat:document.getElementById("flat").value,
     index:document.getElementById("index").value,
-
+    dev: document.getElementById("dev").innerText,
     msg: document.getElementById("msg").value,
 
     ord: positon

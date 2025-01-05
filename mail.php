@@ -23,6 +23,7 @@ $house = $data['house'];
 $flat = $data['flat'];
 $index = $data['index'];
 
+$dev = $data['dev'];
 $msg = $data['msg'];
 
 $ord = $data['ord'];
@@ -43,6 +44,7 @@ $body =
 '<p>Квартира: <strong>'.$flat.'</strong></p>'.
 '<p>Индекс: <strong>'.$index.'</strong></p>'.
 
+'<p>Доставка: <strong>'.$dev.'</strong></p>'.
 '<p>Сообщение: <strong>'.$msg.'</strong></p>'.
 
 '<p>Заказ: <strong>'.$ord.'</strong></p>';

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Магазин</title>
+  <title>Coins</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
 <body>
   <div class="body  d-flex flex-column justify-content-between">
 
-    <!-- Modal -->
+    <!-- Modal 1 buyCard -->
     <div class=" modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
       tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -46,7 +46,7 @@
           </div>
 
           <div class="w-75 d-flex justify-content-center textForModal-container">
-            <span class="textForModal"> Обратите внимание что все позиции в магазине являются копиями <span>копии</span>
+            <span class="textForModal"> Обратите внимание что все позиции в магазине являются <span>копиями</span>
             </span>
           </div>
 
@@ -74,15 +74,23 @@
                   style="text-align: center" autocomplete="off" aria-label="city">
                 <input class="form__input-inp w-50 form-control" type="text" id="street" name="street"
                   placeholder="улица" style="text-align: center" autocomplete="off" aria-label="street">
-                <input class="form__input-inp w-25 form-control" type="number" id="house" name="house" placeholder="дом"
+                <input class="form__input-inp w-33 form-control" type="number" id="house" name="house" placeholder="дом"
                   style="text-align: center" autocomplete="off" aria-label="house">
-                <input class="form__input-inp w-25 form-control" type="number" id="flat" name="flat"
+                <input class="form__input-inp w-33 form-control" type="number" id="flat" name="flat"
                   placeholder="квартира" style="text-align: center" autocomplete="off" aria-label="flat">
-                <input class="form__input-inp w-25 form-control" type="number" id="index" name="index"
+                <input class="form__input-inp w-33 form-control" type="number" id="index" name="index"
                   placeholder="индекс" style="text-align: center" autocomplete="off" aria-label="index">
-
+                <div class="form__input-box input-group container w-100 d-flex justify-content-center del-input ">
+                  <label class="input-group-text txt-gray" for="dev">Доставка:</label>
+                  <select class="form-select" id="dev">
+                    <option selected value="по предоплате (+ почтовые расходы)">по предоплате (+ почтовые расходы)
+                    </option>
+                    <option value="наложенным платежом (+ почтовые расходы)">наложенным платежом (+ почтовые расходы)
+                    </option>
+                    <option value="при личной встрече в Москве">при личной встрече в Москве</option>
+                  </select>
+                </div>
               </div>
-
               <div class="form__input-box input-group container w-100 d-flex justify-content-center">
                 <textarea class="form__input-inp w-100 form-control" name="msg" id="msg"
                   placeholder="Дополнительная информация" style="text-align: center"></textarea>
@@ -90,11 +98,77 @@
               <button class="form__btn btn btn-primary mt-3" type="submit">Отправить заявку</button>
             </form>
           </div>
-
           <div class="modal-footer mt-2">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
             <button type="button" class="btn btn-primary d-none">Скопировать</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <!-- Modal 2 delivery -->
+    <div class=" modal fade modal-lg" id="deliveryMenu" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+      <!-- <div class=" modal fade modal-lg" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+      tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"> -->
+
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Доставка</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="w-75 d-flex justify-content-center textForModal-container">
+            <span class="textForModal-delyvery">
+              <div class="bold-text center-text"> Варианты покупки и отправки заказа (определяется при оформлении):
+              </div> <br>
+              <span class="green bold-text">-Первый вариант по предоплате:</span><br>
+              Вы оплачиваете сумму заказа и почтовые услуги почты, после чего ваш заказ будет упакован и отправлен
+              почтой РФ к Вам. Через некоторое время посылка приходит в ваше отделение, вы и её забираете и остаётесь
+              довольны.<br>
+
+              <span class="green bold-text">-Второй вариант наложенным платежом:</span> <br>
+              Вы оформляете заказ, после чего мы его упаковываем и отправляем вам. После того как посылка поступит в
+              ваше отделение почты, вы её получаете и оплачиваете сумму заказа.<br>
+
+              <span class="green bold-text">-Третий вариант при личной встрече:</span> <br>
+              Встреча в городе Москва, вы получаете свой заказ в "из рук в руки".
+
+              <!-- <span>копии</span> -->
+            </span>
+          </div>
+
+          <div class="modal-footer mt-2">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <!-- Modal 3 photo -->
+    <div class=" modal fade modal-lg" id="imgBiger" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header d-flex justify-content-center">
+            
+            <h5 class="modal-title" id="imgBigerTitel"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="w-100 d-flex  picModal-container">
+          </div>
+          <div class="w-100 d-flex picModal-container countryModal">
+          </div>
+          <div class="w-100 d-flex picModal-container diamModal">
+          </div>
+          <div class="w-100 d-flex picModal-container massModal">
+          </div>
+          <div class="w-100 d-flex picModal-container priceModal">
+          </div>
+          <div class="modal-footer mt-2">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
           </div>
         </div>
       </div>
@@ -102,6 +176,7 @@
 
 
     <header class="bg-primary.bg-gradient">
+      <!-- navigation menu -->
       <nav class="navbar navbar-expand-lg fixed-top bg-light navigation">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">12rubley.ru</a>
@@ -150,7 +225,7 @@
             </li>
             <li class="nav-item">
               <a class="nav-link disabled cardOfBuyer" id="cardOfBuyer" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop" href="#footer" aria-disabled="true">Корзина<span
+                data-bs-target="#staticBackdrop" href="#" aria-disabled="true">Корзина<span
                   id="card-numberOfProducts"></span></a>
             </li>
             <li class="nav-item">
@@ -160,7 +235,8 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" aria-disabled="true" href="#footer">Доставка</a>
+              <a class="nav-link cardOfBuyer" id="delivery" data-bs-toggle="modal" data-bs-target="#deliveryMenu"
+                href="#" aria-disabled="true">Доставка<span id="card-numberOfProducts"></span></a>
             </li>
             </ul>
             <!-- <form class="d-flex" role="search">
@@ -172,19 +248,7 @@
       </nav>
     </header>
 
-    <!-- slider -->
-    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide slider-cont" data-bs-ride="carousel">
-    <div class="carousel-inner">
-     
-      <div class="carousel-item active">
-        <img src="pic/1.jpg" class="d-block w-100" alt="...">
-      </div>
-       <div class="carousel-item">
-        <img src="pic/2.jpg" class="d-block w-100" alt="...">
-      </div>
-    </div>
-  </div> -->
-
+    <!-- head-pictures + label -->
     <div class=" w-100 post ">
       <img src="pic/1.jpg" class="d-block w-100 post-img" alt="...">
       <div class="post-text">
@@ -291,8 +355,8 @@
         </div>
       </div>
   </div>
-
   </footer>
+
   <script src="lib/jquery.min.js"></script>
   <script src="products.json"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -302,7 +366,6 @@
   <script src="js/inputmask.min.js"></script>
   <script src="js/just-validate.min.js"></script>
   <script type="module" src="js/main.js"></script>
-
 
 </body>
 

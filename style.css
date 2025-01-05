@@ -394,10 +394,32 @@ footer {
     }
 }
 
+.bold-text{
+    font-weight:bold;
+}
+.green{
+    color: rgb(14, 116, 82);
+}
+
+.center-text{
+    text-align:  center; 
+}
+
+.textForModal-delyvery{
+    font-family: "Oranienbaum";
+    font-size: 1.1rem;
+}
+
+
 .post{
     margin-top: 30px;
     
     position: relative;
+}
+
+.del-input{
+    padding-right: 0px;
+    padding-left: 0px;
 }
 
 .post-text{
@@ -417,7 +439,13 @@ footer {
     font-family: "SnellRoundhand" ;
     
     /* font-family: "LetteraTrentadue" ; */
+}
 
- 
+.txt-gray{
+    color:rgb(89, 92, 95);
+}
+
+.countryModal , .diamModal , .massModal , .priceModal{
+padding-left: 20%;
 }
 
