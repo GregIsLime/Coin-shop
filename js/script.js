@@ -195,24 +195,53 @@ function checkingNumInCard(art) {
 }
 
 function addToCard() {
+    let marker
     let card = JSON.parse(localStorage.getItem('card')) || [];
     let articl = this.getAttribute("data-art")
+
+    if (articl === "") {
+        articl = arcticlGlobal
+        marker = 1
+    }
+
     card.push(articl)
     localStorage.setItem("card", JSON.stringify(card))
     document.querySelector(`[data-art= "${articl}"]`).style.display = "none"
     document.querySelector(`[data-art-button= "${articl}"]`).style.display = "flex"
     this.parentNode.querySelector(".p-card").innerHTML = checking(articl)[0]
+
+    if (marker === 1) {
+        // console.log(pCard)
+        pCard.innerText = checking(articl)[0]
+        
+    } 
+    inCard.setAttribute("style", "display: none;")
+    numIncard.setAttribute("style", "display: flex;")
+
+
     cardIsActive()
 }
 
 function pluseAction() {
+    let marker
     let card = JSON.parse(localStorage.getItem('card')) || [];
     if (this.className === "imgSym pluse") {
         let articl = this.parentNode.getAttribute("data-art-button")
         // console.log(articl)
+        if (articl === "") {
+            articl = arcticlGlobal
+            marker=1
+        }
+
         card.push(articl)
         localStorage.setItem("card", JSON.stringify(card))
         this.parentNode.querySelector(".p-card").innerHTML = checking(articl)[0]
+
+        if (marker === 1) {
+            pCard.innerText = checking(articl)[0]
+        }
+
+        console.log(globalPath)
         cardIsActive()
 
     } else if (this.className === "imgSym imgSymModal pluse2") {
@@ -237,9 +266,16 @@ function pluseAction() {
 }
 
 function minusAction() {
+    let marker
     let card = JSON.parse(localStorage.getItem('card')) || [];
     if (this.className === "imgSym minus") {
         let articl = this.parentNode.getAttribute("data-art-button")
+        // console.log(arcticlGlobal)
+
+        if (articl === "") {
+            articl = arcticlGlobal
+            marker = 1
+        }
         let i = 0
         for (let el of card) {
             if (el === articl) {
@@ -249,10 +285,21 @@ function minusAction() {
             i++
         }
         localStorage.setItem("card", JSON.stringify(card))
+
+        console.log(this.parentNode.querySelector(".p-card"))
+
         this.parentNode.querySelector(".p-card").innerHTML = checking(articl)[0]
+
+        if (marker === 1) {
+            console.log(pCard)
+            pCard.innerText = checking(articl)[0]
+            
+        } 
         if (checking(articl)[0] === 0) {
-            document.querySelector(`[data-art= "${articl}"]`).style.display = ""
+            document.querySelector(`[data-art= "${articl}"]`).style.display = "flex"
             document.querySelector(`[data-art-button= "${articl}"]`).style.display = "none"
+            document.getElementById("plusMinus").setAttribute("style", "display:none;")
+            document.getElementById("inCard").setAttribute("style", "display:flex;")
             cardIsActive()
         }
         cardIsActive()
@@ -357,23 +404,82 @@ function toStringForMail(order, price, pcs) {
     }
 }
 
+let arcticlGlobal
+let globalPath
+let pCard
+let inCard
+let numIncard
 function imgBiger() {
+
+    let conteinerForModul = document.getElementsByClassName("conteinerForModul")[0]
+    inCard = conteinerForModul.getElementsByClassName("card-block")[0]
+    numIncard = conteinerForModul.getElementsByClassName("card-block2")[0]
+    let statusInCard = this.parentNode.getElementsByClassName("card-block")[0].getAttribute("style")
+    pCard = this.parentNode.getElementsByClassName("p-card")[0]
+    // console.log(pCard)
+
+    globalPath = this.parentNode
+    arcticlGlobal = this.parentNode.getElementsByClassName("card-block2")[0].getAttribute("data-art-button")
+
+    inCard.setAttribute("style", "display: none;")
+    numIncard.setAttribute("style", "display: none;")
+
+
     document.getElementsByClassName("picModal-container")[0].innerHTML = ""
 
-    let countryModal = document.getElementsByClassName("countryModal")[0] 
-    let diamModal = document.getElementsByClassName("diamModal")[0] 
-    let massModal = document.getElementsByClassName("massModal")[0] 
-    let priceModal = document.getElementsByClassName("priceModal")[0] 
+    let countryModal = document.getElementsByClassName("countryModal")[0]
+    let diamModal = document.getElementsByClassName("diamModal")[0]
+    let massModal = document.getElementsByClassName("massModal")[0]
+    let priceModal = document.getElementsByClassName("priceModal")[0]
 
     let img = this.parentNode.getElementsByClassName("card-img-top")[0]
     let modalBlockPic = document.getElementsByClassName("picModal-container")[0]
     let copyImg = img.cloneNode()
-    document.getElementById("imgBigerTitel").innerHTML = this.parentNode.getElementsByClassName("nominals")[0].innerText + " " + this.parentNode.getElementsByClassName("nominals-comnt")[0].innerText 
+    document.getElementById("imgBigerTitel").innerHTML = this.parentNode.getElementsByClassName("nominals")[0].innerText + " " + this.parentNode.getElementsByClassName("nominals-comnt")[0].innerText
     modalBlockPic.appendChild(copyImg)
 
-    countryModal.innerText= this.parentNode.getElementsByClassName("country")[0].innerText
-    diamModal.innerText= this.parentNode.getElementsByClassName("diam")[0].innerText
-    massModal.innerText= this.parentNode.getElementsByClassName("mass")[0].innerText
-    priceModal.innerText= "Цена: "+this.parentNode.getElementsByClassName("price")[0].innerText
+    countryModal.innerText = this.parentNode.getElementsByClassName("country")[0].innerText
+    diamModal.innerText = this.parentNode.getElementsByClassName("diam")[0].innerText
+    massModal.innerText = this.parentNode.getElementsByClassName("mass")[0].innerText
+    priceModal.innerText = "Цена: " + this.parentNode.getElementsByClassName("price")[0].innerText
+
+
+
+    if (statusInCard === "display: flex;") {
+        inCard.setAttribute("style", statusInCard)
+
+
+
+    } else {
+        numIncard.setAttribute("style", "display: flex;")
+        numIncard.getElementsByClassName("p-card")[0].innerText = pCard.innerText
+    }
+    // let inCard = this.parentNode.getElementsByClassName("card-block")[0]
+    // let inCardCopy = inCard.cloneNode()
+    // let plusMinus = this.parentNode.getElementsByClassName("card-block2")[0]
+    // let plusMinusCopy = plusMinus.cloneNode()
+
+    // let blockforModal = document.getElementsByClassName("conteinerForModul")[0]
+
+    // blockforModal.appendChild(inCardCopy).innerText= this.parentNode.getElementsByClassName("card-block")[0].innerText
+
+    // blockforModal.appendChild(plusMinusCopy).innerText= this.parentNode.getElementsByClassName("card-block2")[0].innerText
+
+
+
+    // const highlightedItems = document.querySelectorAll(".toBuyIt")
+    // highlightedItems.forEach((element) =>
+    //     element.addEventListener("click", addToCard)
+    // )
+
+    // const pluse = document.querySelectorAll(".pluse")
+    // pluse.forEach((element) =>
+    //     element.addEventListener("click", pluseAction)
+    // )
+
+    // const minus = document.querySelectorAll(".minus")
+    // minus.forEach((element) =>
+    //     element.addEventListener("click", minusAction)
+    // )
 
 }
