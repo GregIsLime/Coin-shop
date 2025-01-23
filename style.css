@@ -40,7 +40,7 @@
 
 }
 
-@media screen and (max-width:650px) {
+@media screen and (min-width:595px) and (max-width:650px) {
     .imgSymModal {
         width: 20px !important;
     }
@@ -142,7 +142,7 @@ body {
     margin: auto;
     box-sizing: border-box;
     padding-right: 0px !important;
-    
+
 }
 
 
@@ -416,6 +416,17 @@ footer {
     font-size: 1.1rem;
 }
 
+#form {
+
+    input,
+    form,
+    label,
+    select,
+    textarea {
+        border-radius: 0px;
+        margin: 0px;
+    }
+}
 
 .post {
     margin-top: 30px;
@@ -431,18 +442,24 @@ footer {
 .post-text {
     width: 30%;
     position: absolute;
-    top: 40%;
+    height: 100%;
+    top: 0%;
     color: white;
-    font-size: 2vw;
+    font-size: 2.5vw;
     padding-left: 1vw;
     text-align: center;
     /* font-family: "Oranienbaum"; */
-    border: 1px black solid;
-    backdrop-filter: blur(5px);
+    /* border: 1px black solid;
+    backdrop-filter: blur(5px); */
     margin-left: 5%;
-    background-color: rgba(169, 169, 169, 0.2);
-    border-radius: 10% / 50%;
-    font-family: "SnellRoundhand";
+    /* background-color: rgba(169, 169, 169, 0.2);
+    border-radius: 10% / 50%; */
+    font-style: italic;
+    font-family: "Oranienbaum";
+    /* background: radial-gradient(rgb(143, 151, 151) 0%, transparent 80%, rgba(209, 32, 32, 0) 40%); */
+
+
+
 
     /* font-family: "LetteraTrentadue" ; */
 }
@@ -461,25 +478,43 @@ footer {
     font-size: 1.1rem;
 }
 
-.modal-header{
+.modal-header {
     font-family: "Oranienbaum";
     font-size: 1.1rem;
 }
 
 
 
-.modal-title{
-    font-size: 1.5rem; 
+.modal-title {
+    font-size: 1.5rem;
     text-align: center;
 }
 
-.modal-backdrop{
+.modal-backdrop {
     width: 100%;
     height: 100%;
 }
 
 @media (max-width: 576px) {
     .modal {
-    padding-right: 1rem !important;
+        padding-right: 1rem !important;
+    }
 }
+
+
+.post-img2{
+    position: relative;
+}
+
+.labeltext{
+    align-content: center;
+}
+
+.text2 {
+    font-family: "SnellRoundhand";   
+    font-style: initial;
+}
+
+.text1 {
+    font-size: 5vw;
 }
