@@ -50,6 +50,17 @@
     .body {
         background-size: 25%;
     }
+
+    .post-img{
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width:620px) {
+   
+    .post-img{
+        margin-top: 20px;
+    }
 }
 
 @media screen and (min-width:900px) {
@@ -137,7 +148,7 @@
 body {
     background-image: url(pic/icon-pattern-gray.png);
     background-size: 25%;
-    max-width: 2000px;
+    /* max-width: 2000px; */
     min-width: 341px !important;
     margin: auto;
     box-sizing: border-box;
@@ -359,6 +370,7 @@ footer {
     align-items: center;
     display: flex;
     margin-bottom: 1rem;
+    z-index: 10;
 }
 
 
@@ -429,7 +441,7 @@ footer {
 }
 
 .post {
-    margin-top: 30px;
+    /* margin-top: 30px; */
 
     position: relative;
 }
@@ -511,10 +523,41 @@ footer {
 }
 
 .text2 {
-    font-family: "SnellRoundhand";   
+    font-family: "Oranienbaum"; 
     font-style: initial;
+    font-size: 5vw;
+    font-style: italic;
 }
 
-.text1 {
+/* .text1 {
     font-size: 5vw;
+} */
+
+.pochta{
+    position: absolute;
+    top: 45%;
+    left: 73%;
+    width: 18%;
+    transform: rotate(35deg);
 }
+
+.pochta2{
+    position: absolute;
+    top: 53%;
+    left: 6%;
+    width: 18%;
+    transform: rotate(35deg);
+}
+
+.pochta3{
+    position: absolute;
+    top: 99%;
+    left: 3%;
+    width: 32%;
+    transform: rotate(0deg);
+}
+
+/* .navigation{
+    backdrop-filter: blur(10px);
+    opacity: 0.7;
+} */

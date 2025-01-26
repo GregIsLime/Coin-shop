@@ -203,7 +203,6 @@ function addToCard() {
         articl = arcticlGlobal
         marker = 1
     }
-
     card.push(articl)
     localStorage.setItem("card", JSON.stringify(card))
     document.querySelector(`[data-art= "${articl}"]`).style.display = "none"
@@ -211,15 +210,17 @@ function addToCard() {
     this.parentNode.querySelector(".p-card").innerHTML = checking(articl)[0]
 
     if (marker === 1) {
-        // console.log(pCard)
         pCard.innerText = checking(articl)[0]
-        
-    } 
-    inCard.setAttribute("style", "display: none;")
-    numIncard.setAttribute("style", "display: flex;")
-
+    }
 
     cardIsActive()
+    try {
+        inCard.setAttribute("style", "display: none;")
+        numIncard.setAttribute("style", "display: flex;")
+    } catch (error) {
+        console.log(error)
+    }
+
 }
 
 function pluseAction() {
@@ -230,7 +231,7 @@ function pluseAction() {
         // console.log(articl)
         if (articl === "") {
             articl = arcticlGlobal
-            marker=1
+            marker = 1
         }
 
         card.push(articl)
@@ -293,8 +294,8 @@ function minusAction() {
         if (marker === 1) {
             console.log(pCard)
             pCard.innerText = checking(articl)[0]
-            
-        } 
+
+        }
         if (checking(articl)[0] === 0) {
             document.querySelector(`[data-art= "${articl}"]`).style.display = "flex"
             document.querySelector(`[data-art-button= "${articl}"]`).style.display = "none"
@@ -351,6 +352,7 @@ function checking(art) {
 }
 
 function cardIsActive() {
+
     let card = JSON.parse(localStorage.getItem('card'))
     let cardMenu = document.querySelector(".cardOfBuyer")
     if (card.length != 0) {
