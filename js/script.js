@@ -121,17 +121,20 @@ function loadGoods() {
                 if (data[key]['type'] === filterSet || filterSet === "none") {
                     if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
                         out += `<div class="col h-100">
-        <div id="card-id-${data[key]['art']}" class="card heighsetingsImg">
+          <div id="card-id-${data[key]['art']}" class="card heighsetingsImg">
           <img src=" ${data[key]['img']}"  data-bs-target="#imgBiger"  data-bs-toggle="modal"  class="card-img-top w-100 cardimage" alt="...">
-
           <div class="card-body d-flex justify-content-around flex-column">
-<div class="w-100">
-            <h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']} ${data[key]['year']}г.</h6>
-           <div class="w-100">
+          <div class="w-100">`
+            if (data[key]['year'] === "") {
+            out += `<h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']} ${data[key]['year']}</h6>`
+            } 
+            else { out += `<h6 class="w-100 card-title text-center fs-5 nominals">${data[key]['nominal']} ${data[key]['year']}г.</h6>` }
+            out += `
+            <div class="w-100">
             <h6 class="w-100 card-title text-center fs-5 nominals-comnt">${data[key]['event']}</h6>
-          </div>
             </div>
-<div class="">
+            </div>
+            <div class="">
             <p class="w-100 card-text lh-sm fs-6 country">Страна: ${data[key]['country']} </p>
             <p class="w-100 card-text lh-sm fs-6 diam">Диаметр: ${data[key]['diameter']}мм </p>
             <p class="w-100 card-text lh-sm fs-8 mass">Вес: ${data[key]['weight']}гр </p>
@@ -146,14 +149,14 @@ function loadGoods() {
             <img class="imgSym pluse" src="pic/more.png" alt="">
             </div>
             <div class="card-block justify-content-md-center justify-content-center text-center toBuyIt align-middle fs-6" style="display: none" data-art="${data[key]['art']}">в корзину</div>
- </div>`
+            </div>`
                         document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
                         out = ""
                         isIn = checkingNumInCard(key)[1]
                         out += checkingNumInCard(key)[0]
                         out += `</div>
-        </div>
-      </div>`
+            </div>
+            </div>`
 
                         document.getElementById("cardKeeper").insertAdjacentHTML('beforeend', out)
                         out = ""
