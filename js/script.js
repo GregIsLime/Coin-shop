@@ -451,17 +451,13 @@ function imgBiger() {
     
 
     let img = this.parentNode.getElementsByClassName("card-img-top")[0]
-    // img.getAttribute("src")
     
     let attr = img.getAttribute("src")
     
     
-    img.setAttribute("src",backPath(attr))
-
-
-
     let modalBlockPic = document.getElementsByClassName("picModal-container")[0]
     let copyImg = img.cloneNode()
+    copyImg.setAttribute("src",backPath(attr))
     document.getElementById("imgBigerTitel").innerHTML = this.parentNode.getElementsByClassName("nominals")[0].innerText + " " + this.parentNode.getElementsByClassName("nominals-comnt")[0].innerText
     modalBlockPic.appendChild(copyImg)
 
