@@ -111,6 +111,16 @@ let filterByCountry = "all"
 
 // d-flex justify-content-end flex-column
 // geting JSON file put in HTML
+function resizing(a){
+   
+
+    let path = a.split("/");
+    // let fileName
+    let resizeImg=path[0]+"/"+path[1]+"/resize/"+path[2]
+    return resizeImg
+
+}
+
 function loadGoods() {
     $.getJSON("products.json", function (data) {
         let filterSet = (isOnlyCoins) ? "монета" : ((isOnlyMedals) ? "медаль" : "none")
@@ -120,9 +130,11 @@ function loadGoods() {
             if (data[key]['isInBase'] === "yes") {
                 if (data[key]['type'] === filterSet || filterSet === "none") {
                     if (data[key]['country'] === filterByCountry || filterByCountry === "all") {
+                        resizing(data[key]['img'])
                         out += `<div class="col h-100">
           <div id="card-id-${data[key]['art']}" class="card heighsetingsImg">
-          <img src=" ${data[key]['img']}"  data-bs-target="#imgBiger"  data-bs-toggle="modal"  class="card-img-top w-100 cardimage" alt="...">
+          <img src="`+ resizing(data[key]['img'])+
+          `"data-bs-target="#imgBiger"  data-bs-toggle="modal"  class="card-img-top w-100 cardimage" alt="...">
           <div class="card-body d-flex justify-content-around flex-column">
           <div class="w-100">`
             if (data[key]['year'] === "") {
@@ -436,8 +448,18 @@ function imgBiger() {
     let diamModal = document.getElementsByClassName("diamModal")[0]
     let massModal = document.getElementsByClassName("massModal")[0]
     let priceModal = document.getElementsByClassName("priceModal")[0]
+    
 
     let img = this.parentNode.getElementsByClassName("card-img-top")[0]
+    // img.getAttribute("src")
+    
+    let attr = img.getAttribute("src")
+    
+    
+    img.setAttribute("src",backPath(attr))
+
+
+
     let modalBlockPic = document.getElementsByClassName("picModal-container")[0]
     let copyImg = img.cloneNode()
     document.getElementById("imgBigerTitel").innerHTML = this.parentNode.getElementsByClassName("nominals")[0].innerText + " " + this.parentNode.getElementsByClassName("nominals-comnt")[0].innerText
@@ -459,32 +481,8 @@ function imgBiger() {
         numIncard.setAttribute("style", "display: flex;")
         numIncard.getElementsByClassName("p-card")[0].innerText = pCard.innerText
     }
-    // let inCard = this.parentNode.getElementsByClassName("card-block")[0]
-    // let inCardCopy = inCard.cloneNode()
-    // let plusMinus = this.parentNode.getElementsByClassName("card-block2")[0]
-    // let plusMinusCopy = plusMinus.cloneNode()
+}
 
-    // let blockforModal = document.getElementsByClassName("conteinerForModul")[0]
-
-    // blockforModal.appendChild(inCardCopy).innerText= this.parentNode.getElementsByClassName("card-block")[0].innerText
-
-    // blockforModal.appendChild(plusMinusCopy).innerText= this.parentNode.getElementsByClassName("card-block2")[0].innerText
-
-
-
-    // const highlightedItems = document.querySelectorAll(".toBuyIt")
-    // highlightedItems.forEach((element) =>
-    //     element.addEventListener("click", addToCard)
-    // )
-
-    // const pluse = document.querySelectorAll(".pluse")
-    // pluse.forEach((element) =>
-    //     element.addEventListener("click", pluseAction)
-    // )
-
-    // const minus = document.querySelectorAll(".minus")
-    // minus.forEach((element) =>
-    //     element.addEventListener("click", minusAction)
-    // )
-
+function backPath(attr){
+   return attr.replace("resize/", "")
 }

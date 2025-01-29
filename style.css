@@ -148,7 +148,7 @@
 body {
     background-image: url(pic/icon-pattern-gray.png);
     background-size: 25%;
-    /* max-width: 2000px; */
+    max-width: 2000px;
     min-width: 341px !important;
     margin: auto;
     box-sizing: border-box;
@@ -525,7 +525,7 @@ footer {
 .text2 {
     font-family: "Oranienbaum"; 
     font-style: initial;
-    font-size: 5vw;
+    font-size: clamp(1rem, 5vw, 70px);
     font-style: italic;
 }
 
