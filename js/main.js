@@ -29,17 +29,19 @@ validation.addField("#name", [
     },
     errorMessage: 'Введите телефон полностью'
   }
-]).addField("#msg", [
-  {
-    rule: "required",
-    errorMessage: "Введите сообщение!"
-  },
-  {
-    rule: "minLength",
-    value: 10,
-    errorMessage: "Минимум 10 символа!"
-  }
-]).onSuccess(async function () {
+]).
+// addField("#msg", [
+//   {
+//     rule: "required",
+//     errorMessage: "Введите сообщение!"
+//   },
+//   {
+//     rule: "minLength",
+//     value: 0
+//     // errorMessage: "Минимум 10 символа!"
+//   }
+// ]).
+onSuccess(async function () {
 
   let productNameOrder = document.getElementsByClassName("productName")
   let eachPrice = document.getElementsByClassName("eachPrice")
