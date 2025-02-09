@@ -55,6 +55,8 @@ onSuccess(async function () {
 
   toStringForMail("total", totalNumberSpan.innerHTML, totalSummSpan.innerHTML)
 
+
+
   let data = {
     surname: document.getElementById("surname").value,
     name: document.getElementById("name").value,
@@ -68,7 +70,7 @@ onSuccess(async function () {
     house:document.getElementById("house").value,
     flat:document.getElementById("flat").value,
     index:document.getElementById("index").value,
-    dev: document.getElementById("dev").innerText,
+    dev: document.getElementById("dev").options[document.getElementById("dev").selectedIndex].value,
     msg: document.getElementById("msg").value,
 
     ord: positon
@@ -76,7 +78,7 @@ onSuccess(async function () {
   positon = ""
 
 
-
+  // dev: document.getElementById("dev").selectElement.options[selectElement.selectedIndex].value,
 
 
 // toStringForMail(`${data[key1]['nominal']} ${data[key1]['year']}г. ${data[key1]['event']}`, `${data[key1]['price']}`, `${correctedLS[i][1]}`)

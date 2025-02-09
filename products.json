@@ -1020,7 +1020,7 @@
         "country": "Россия",
         "nominal": "1 рубль",
         "year": "1807",
-        "event": "",
+        "event": "А",
         "diameter": "",
         "weight": "",
         "price": "115",
@@ -1033,7 +1033,7 @@
         "country": "Россия",
         "nominal": "1 рубль",
         "year": "1807",
-        "event": "",
+        "event": "Б",
         "diameter": "",
         "weight": "",
         "price": "115",
@@ -1046,7 +1046,7 @@
         "country": "Россия",
         "nominal": "1 рубль",
         "year": "1807",
-        "event": "",
+        "event": "В",
         "diameter": "",
         "weight": "",
         "price": "115",
@@ -1119,7 +1119,7 @@
     },
     "1.14": {
         "art": "1.14",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "Полтина",
@@ -1262,7 +1262,7 @@
     },
     "1.25": {
         "art": "1.25",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "Полтина",
@@ -1589,7 +1589,7 @@
     },
     "1.41": {
         "art": "1.41",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "6 рублей",
@@ -1953,7 +1953,7 @@
     },
     "1.67": {
         "art": "1.67",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "Полтина",
@@ -1992,7 +1992,7 @@
     },
     "1.70": {
         "art": "1.70",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "25 копеек",
@@ -2070,7 +2070,7 @@
     },
     "1.76": {
         "art": "1.76",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "25 копеек",
@@ -2109,7 +2109,7 @@
     },
     "1.79": {
         "art": "1.79",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "1 рубль",
@@ -2122,7 +2122,7 @@
     },
     "1.80": {
         "art": "1.80",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "1 рубль",
@@ -2135,7 +2135,7 @@
     },
     "1.81": {
         "art": "1.81",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "1 рубль",
@@ -2148,7 +2148,7 @@
     },
     "1.82": {
         "art": "1.82",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "1 рубль",
@@ -2200,7 +2200,7 @@
     },
     "1.86": {
         "art": "1.86",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "1 рубль",
@@ -2369,7 +2369,7 @@
     },
     "1.96": {
         "art": "1.96",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "монета",
         "country": "Россия",
         "nominal": "50 копеек",
@@ -2915,7 +2915,7 @@
     },
     "11.015": {
         "art": "11.015",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "медаль",
         "country": "Россия",
         "nominal": "Медаль",
@@ -3943,7 +3943,7 @@
     },
     "44.7": {
         "art": "44.7",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "медаль",
         "country": "Германия",
         "nominal": "Медаль",
@@ -3982,7 +3982,7 @@
     },
     "44.704": {
         "art": "44.704",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "медаль",
         "country": "Германия",
         "nominal": "Медаль",
@@ -4047,7 +4047,7 @@
     },
     "44.714": {
         "art": "44.714",
-        "isInBase": "yes",
+        "isInBase": "",
         "type": "медаль",
         "country": "Германия",
         "nominal": "Медаль",
